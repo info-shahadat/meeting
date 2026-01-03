@@ -1,0 +1,125 @@
+
+    /* Fullscreen gradient background */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #fff;
+    }
+
+    /* Center join card */
+    .join-card-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    /* Card styling */
+    .join-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        width: 100%;
+        max-width: 600px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Heading */
+    .join-card h4 {
+        color: #00ffe0;
+        font-weight: 700;
+    }
+
+    /* Inputs */
+    .form-control {
+        border-radius: 12px;
+        background: rgba(255,255,255,0.1);
+        border: none;
+        color: #fff;
+        padding: 12px 15px;
+        transition: 0.3s;
+    }
+    .form-control:focus {
+        background: rgba(255,255,255,0.2);
+        box-shadow: 0 0 10px #00ffe0;
+        color: #fff;
+    }
+
+    /* Buttons */
+    .btn-primary, .btn-outline-primary {
+        border-radius: 12px;
+        font-weight: 600;
+        padding: 10px 20px;
+        transition: 0.3s;
+    }
+    .btn-primary {
+        background: #00ffe0;
+        color: #0f2027;
+        border: none;
+    }
+    .btn-primary:hover {
+        background: #00d4c5;
+        color: #fff;
+    }
+    .btn-outline-primary {
+        border: 2px solid #00ffe0;
+        color: #00ffe0;
+    }
+    .btn-outline-primary:hover {
+        background: #00ffe0;
+        color: #0f2027;
+    }
+
+    /* Labels and small text */
+    .form-label {
+        color: #c0fefe;
+    }
+    small {
+        color: #0fffd4;
+    }
+
+    /* JAAS container full screen */
+    #jaas-container {
+        display: none;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /* Floating share button */
+    #shareBtn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+        border-radius: 50px;
+        padding: 10px 20px;
+        background: #00ffe0;
+        color: #0f2027;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: 0.3s;
+    }
+    #shareBtn:hover {
+        background: #00d4c5;
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .join-card {
+            padding: 25px 20px;
+        }
+    }
+
+    #googleBtn > div {
+        width: 220px !important;
+        height: 45px !important;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }

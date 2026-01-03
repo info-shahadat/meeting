@@ -128,4 +128,9 @@ Route::post('/meet/{room}/join', [MeetingController::class, 'recordJoin'])->name
 Route::post('/meet/{room}/leave', [MeetingController::class, 'recordLeave'])->name('meet.recordLeave');
 
 
+Route::get('/auth/google', [MeetingController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [MeetingController::class, 'callback'])->name('google.callback');
+
+
+
 require __DIR__.'/auth.php';

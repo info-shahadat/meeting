@@ -32,6 +32,11 @@ class MeetingController extends Controller
 
     public function recordJoin(Request $request, $room)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email'
+        ]);
+
         $meeting = Meeting::where('room', $room)->firstOrFail();
 
         $participant = MeetingParticipant::create([
@@ -50,5 +55,7 @@ class MeetingController extends Controller
             'left_at' => now()
         ]);
     }
+
+
 }
 

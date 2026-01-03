@@ -24,6 +24,8 @@
 </div>
 
 <div class="row">
+
+    <!-- Create a New Meeting -->
     <div class="col-md-4 mb-4">
         <div class="card border-0 shadow components-section">
             <div class="card-body">
@@ -53,9 +55,51 @@
             </div>
         </div>
     </div>
+
+    <!-- Join Meeting by Code -->
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow components-section">
+            <div class="card-body">
+
+                <h4 class="mb-4">Join Meeting by Code</h4>
+
+                <!-- We use GET /meet/{room}, so we handle it via JS -->
+                <form id="joinForm">
+                    <div class="mb-3">
+                        <label class="form-label">Meeting Code</label>
+                        <input type="text"
+                            id="joinRoomCode"
+                            class="form-control"
+                            placeholder="Enter Meeting Code"
+                            required>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success">
+                            Join Meeting
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
 </div>
+
 
 @endsection
 
-{{-- @section('script')
-@endsection --}}
+@section('script')
+
+<script>
+    document.getElementById('joinForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // prevent default form submit
+        const room = document.getElementById('joinRoomCode').value.trim();
+        if(room) {
+            // Redirect to the join route with the room code
+            window.location.href = '/meet/' + encodeURIComponent(room);
+        }
+    });
+    </script>
+@endsection
