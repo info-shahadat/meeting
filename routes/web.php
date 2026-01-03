@@ -113,6 +113,7 @@ Route::middleware ( [ 'permission:role.edit' ] )->group ( function () {
 
 Route::delete ( '/role-delete/{id}', [ RoleController::class, 'destroy' ] )->middleware ( [ 'permission:role.destroy' ] )->name ( 'role.destroy' );
 
+// Authenticated users: can create meetings
 Route::middleware('auth')->group(function () {
     Route::get('/meet', function () {
         return view('meeting.index');
@@ -121,9 +122,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/meetings', [MeetingController::class, 'create'])->name('meet.create');
 });
 
-// Public join routes (anyone can access)
+// Public join routes: anyone can access
 Route::get('/meet/{room}', [MeetingController::class, 'join'])->name('meet.join');
-Route::post('/meet/{room}/join', [MeetingController::class, 'recordJoin']);
-Route::post('/meet/{room}/leave', [MeetingController::class, 'recordLeave']);
+Route::post('/meet/{room}/join', [MeetingController::class, 'recordJoin'])->name('meet.recordJoin');
+Route::post('/meet/{room}/leave', [MeetingController::class, 'recordLeave'])->name('meet.recordLeave');
+
 
 require __DIR__.'/auth.php';

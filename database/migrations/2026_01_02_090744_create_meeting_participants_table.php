@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('meeting_id')->constrained()->cascadeOnDelete();
             $table->string('name');
+            $table->email('email');
             $table->timestamp('joined_at')->nullable();
             $table->timestamp('left_at')->nullable();
             $table->timestamps();

@@ -132,7 +132,7 @@
                 {{-- @endcan --}}
 
                 {{-- Transactions --}}
-                <li class="nav-item {{ request()->is('transactions') ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ request()->is('transactions') ? 'active' : '' }}">
                     <a href="{{ url('/transactions') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20">
@@ -142,10 +142,10 @@
                         </span>
                         <span class="sidebar-text">Transactions</span>
                     </a>
-                </li>
+                </li> --}}
 
                 {{-- Settings --}}
-                <li class="nav-item {{ request()->is('settings') ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ request()->is('settings') ? 'active' : '' }}">
                     <a href="{{ url('/settings') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
@@ -153,10 +153,10 @@
                         </span>
                         <span class="sidebar-text">Settings</span>
                     </a>
-                </li>
+                </li> --}}
 
                 {{-- Page Examples --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <span
                         class="nav-link collapsed d-flex justify-content-between align-items-center
                         {{ request()->is('reset-password','404') ? 'active' : '' }}"
@@ -196,8 +196,8 @@
                             </li>
                         </ul>
                     </div>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
 
                     <span
                         class="nav-link collapsed d-flex justify-content-between align-items-center
@@ -264,6 +264,18 @@
                         </ul>
                     </div>
 
+                </li> --}}
+
+                {{-- Meeting --}}
+                <li class="nav-item {{ request()->is('meet') ? 'active' : '' }}">
+                    <a href="{{ url('/meet') }}" class="nav-link">
+                        <span class="sidebar-icon">
+                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14v1a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h8a2 2 0 012 2v1z"/>
+                            </svg>
+                        </span>
+                        <span class="sidebar-text">Meet</span>
+                    </a>
                 </li>
 
                 @canany([

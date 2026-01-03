@@ -36,8 +36,9 @@ class MeetingController extends Controller
 
         $participant = MeetingParticipant::create([
             'meeting_id' => $meeting->id,
-            'name' => $request->name,
-            'joined_at' => now()
+            'name'       => $request->name,
+            'email'      => $request->email,
+            'joined_at'  => now(),
         ]);
 
         return response()->json(['id' => $participant->id]);
