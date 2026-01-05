@@ -274,7 +274,18 @@
                                 <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14v1a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h8a2 2 0 012 2v1z"/>
                             </svg>
                         </span>
-                        <span class="sidebar-text">Meet</span>
+                        <span class="sidebar-text">Meeting Create</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('meet-list') ? 'active' : '' }}">
+                    <a href="{{ url('/meet-list') }}" class="nav-link">
+                        <span class="sidebar-icon">
+                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 4a1 1 0 011-1h1V1h2v2h8V1h2v2h1a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v14h14V6H5zm2 2h10v2H7V8zm0 4h10v2H7v-2zm0 4h6v2H7v-2z"/>
+                            </svg>
+                        </span>
+                        <span class="sidebar-text">Meeting List</span>
                     </a>
                 </li>
 

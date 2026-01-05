@@ -56,6 +56,51 @@ class MeetingController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        return view('meeting.meet-list');
+    }
+
+    public function meetListData()
+    {
+        $meetings = Meeting::with('host')->get();
+
+        $meetings = $meetings->map(function ($meeting) {
+            return [
+                'title'     => $meeting->title,
+                'room'      => $meeting->room,
+                'creator'   => $meeting->host ? $meeting->host->name : 'Unknown',
+                'created_at'=> $meeting->created_at->format('Y-m-d H:i:s'),
+            ];
+        });
+
+        return response()->json(['data' => $meetings]);
+    }
+
+    public function update(Request $request, $room)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+
+        $meeting = Meeting::where('room', $room)->firstOrFail();
+
+        if ($meeting->host_id !== auth()->id()) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }
+
+        $meeting->title = $request->title;
+        $meeting->save();
+
+        return response()->json(['success' => true, 'title' => $meeting->title]);
+    }
+
+    public function destroy($room)
+    {
+        $meeting = Meeting::where('room', $room)->firstOrFail();
+        $meeting->delete();
+        return redirect()->route('meet.list')->with('success', 'Meeting deleted successfully');
+    }
 
 }
 

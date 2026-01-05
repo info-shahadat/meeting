@@ -13,4 +13,9 @@ class Meeting extends Model
     {
         return 'meeting-' . Str::random(10);
     }
+
+    public function host()
+    {
+        return $this->belongsTo(User::class, 'host_id');
+    }
 }

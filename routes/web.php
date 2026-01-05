@@ -120,6 +120,13 @@ Route::middleware('auth')->group(function () {
     })->name('meet.form');
 
     Route::post('/meetings', [MeetingController::class, 'create'])->name('meet.create');
+
+    Route::get('/meet-list', [MeetingController::class, 'index'])->name('meet.list');
+    Route::get('/meet-list-data', [MeetingController::class, 'meetListData'])->name('meet.list.data');
+
+    Route::put('/meet-update/{room}', [MeetingController::class, 'update'])->name('meet.update');
+    
+    Route::delete('/meet-delete/{room}', [MeetingController::class, 'destroy'])->name('meet.delete');
 });
 
 // Public join routes: anyone can access
