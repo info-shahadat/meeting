@@ -120,11 +120,11 @@
                                         </label> -->
                                     </div>
 
-                                    @if (Route::has('password.request'))
+                                    {{-- @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}" class="small text-right">
                                             Lost password?
                                         </a>
-                                    @endif
+                                    @endif --}}
                                 </div>
 
                                 <div class="d-grid">
@@ -134,14 +134,14 @@
                                 </div>
                             </form>
 
-                            <div class="d-flex justify-content-center align-items-center mt-4">
+                            {{-- <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">
                                     Not registered?
                                     <a href="{{ route('register') }}" class="fw-bold">
                                         Create account
                                     </a>
                                 </span>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
